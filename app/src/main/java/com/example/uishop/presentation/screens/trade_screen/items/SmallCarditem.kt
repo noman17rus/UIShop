@@ -34,13 +34,12 @@ import com.example.uishop.ui.theme.UIShopTheme
 
 @Composable
 fun SmallCardItem(latest: Latest) {
-
     val painter = rememberAsyncImagePainter(latest.imageUrl)
     Card(
         modifier = Modifier
             .width(114.dp)
             .height(149.dp)
-            .padding(4.dp).clickable {  }
+            .padding(7.dp).clickable {  }
     )
     {
         Box(

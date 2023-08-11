@@ -81,7 +81,8 @@ fun ItemBalancePreview() {
         ProfileItem(
             image = Icons.Default.Image,
             text = "test text",
-            argument = Icons.Default.ArrowForwardIos
+            argument = Icons.Default.ArrowForwardIos,
+            action = { }
         )
     }
 }

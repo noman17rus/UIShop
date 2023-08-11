@@ -2,11 +2,9 @@ package com.example.uishop.data
 
 import com.example.uishop.model.ListFlashSale
 import com.example.uishop.model.ListLatest
-import retrofit2.Call
-import retrofit2.Response
 import retrofit2.http.GET
 
-interface ProductService {
+interface ApiInterface {
     @GET("cc0071a1-f06e-48fa-9e90-b1c2a61eaca7")
     suspend fun getLatestProducts() : ListLatest
 

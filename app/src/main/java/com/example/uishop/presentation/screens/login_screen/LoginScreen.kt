@@ -14,6 +14,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
@@ -30,14 +31,13 @@ import androidx.compose.ui.unit.sp
 import com.example.uishop.R
 import com.example.uishop.presentation.patterns.UiShopButton
 import com.example.uishop.presentation.screens.tools.CustomTextField
+import com.example.uishop.presentation.screens.tools.MyTextStyle
 import com.example.uishop.presentation.screens.tools.PasswordTextField
 
 @Preview
 @Composable
-fun LoginScreen() {
+fun LoginScreen(viewModel: LoginScreenViewModel = androidx.lifecycle.viewmodel.compose.viewModel()) {
 
-    var password by rememberSaveable { mutableStateOf("") }
-    var passwordVisible by rememberSaveable { mutableStateOf(false) }
     Column(
         modifier = Modifier.fillMaxSize(),
         horizontalAlignment = Alignment.CenterHorizontally,
@@ -45,35 +45,48 @@ fun LoginScreen() {
     ) {
         Text(
             text = "Welcome back",
-            style = TextStyle(
-                textAlign = TextAlign.Center,
-                fontSize = 26.sp,
-                fontFamily = FontFamily(Font(R.font.montserrat)),
-                fontWeight = FontWeight.Bold,
-                color = Color(0xFF000000)
-            )
+            style = MyTextStyle(fontSize = 29).mainTextStyle
         )
-        Column {
-            CustomTextField(value = "", onValueChange = { }, placeholderText = "first name")
-            Spacer(modifier = Modifier.padding(10.dp))
-            PasswordTextField(
-                value = password, onValueChange = { password = it },
-                placeholderText = "password",
-                passwordVisible = passwordVisible,
-                trailingIcon = {
-                    val image = if (passwordVisible)
-                        Icons.Outlined.Visibility
-                    else Icons.Outlined.VisibilityOff
-                    // Please provide localized description for accessibility services
-                    val description = if (passwordVisible) "Hide password" else "Show password"
-                    IconButton(onClick = { passwordVisible = !passwordVisible }) {
-                        Icon(imageVector = image, description)
-                    }
-                }
-            )
-
-        }
+        UserInfo(
+            name = viewModel.name,
+            password = viewModel.password,
+            nameChange = viewModel.nameChange(),
+            passwordChange = viewModel.passwordChange(),
+            passwordVisible = viewModel.passwordVisible
+        )
         UiShopButton(text = "Login in") {
+            //button on click
         }
+    }
+}
+
+@Composable
+fun UserInfo(
+    name: String,
+    password: String,
+    nameChange: (String) -> Unit,
+    passwordChange: (String) -> Unit,
+    passwordVisible: Boolean
+) {
+    Column {
+        var passwordVisible = passwordVisible
+        CustomTextField(value = name, onValueChange = nameChange, placeholderText = "first name")
+        Spacer(modifier = Modifier.padding(10.dp))
+        PasswordTextField(
+            value = password, onValueChange = passwordChange,
+            placeholderText = "password",
+            passwordVisible = passwordVisible,
+            trailingIcon = {
+                val image = if (passwordVisible)
+                    Icons.Outlined.Visibility
+                else Icons.Outlined.VisibilityOff
+                // Please provide localized description for accessibility services
+                val description = if (passwordVisible) "Hide password" else "Show password"
+                IconButton(onClick = { passwordVisible = !passwordVisible }) {
+                    Icon(imageVector = image, description)
+                }
+            }
+        )
+
     }
 }

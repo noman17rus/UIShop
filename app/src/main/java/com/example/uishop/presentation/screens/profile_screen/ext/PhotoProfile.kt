@@ -1,4 +1,4 @@
-package com.example.uishop.presentation.screens.tools
+package com.example.uishop.presentation.screens.profile_screen.ext
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable

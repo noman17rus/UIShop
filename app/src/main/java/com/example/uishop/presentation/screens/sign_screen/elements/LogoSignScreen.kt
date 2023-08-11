@@ -15,6 +15,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.uishop.R
+import com.example.uishop.presentation.screens.tools.MyTextStyle
 
 @Composable
 fun LogoSignScreen() {
@@ -24,13 +25,7 @@ fun LogoSignScreen() {
                 .width(150.dp)
                 .height(48.dp),
             text = "Sign in",
-            style = LocalTextStyle.current.copy(
-                textAlign = TextAlign.Center,
-                fontSize = 26.sp,
-                fontFamily = FontFamily(Font(R.font.montserrat)),
-                fontWeight = FontWeight.Bold,
-                color = Color(0xFF000000)
-            )
+            style = MyTextStyle(fontSize = 29).mainTextStyle
         )
     }
 }

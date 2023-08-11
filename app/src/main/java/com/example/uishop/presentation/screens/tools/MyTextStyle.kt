@@ -9,12 +9,15 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.sp
 import com.example.uishop.R
 
-class MyTextStyle()  {
+class MyTextStyle(
+    val fontSize: Int = 14,
+    val color: Color = Color(0xFF040402)
+)  {
     val mainTextStyle = TextStyle.Default.copy(
-            fontSize = 14.sp,
+            fontSize = fontSize.sp,
             fontFamily = FontFamily(Font(R.font.montserrat)),
             fontWeight = FontWeight.Bold,
-            color = Color(0xFF040402),
+            color = color,
             textAlign = TextAlign.Center,
     )
 }
