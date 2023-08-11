@@ -28,7 +28,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.rememberAsyncImagePainter
 import com.example.uishop.R
-import com.example.uishop.model.FlashSale
+import com.example.uishop.domain.model.FlashSale
 import com.example.uishop.ui.theme.UIShopTheme
 
 @Composable

@@ -22,14 +22,13 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import coil.compose.AsyncImage
 import coil.compose.rememberAsyncImagePainter
 import com.example.uishop.R
-import com.example.uishop.model.Latest
+import com.example.uishop.domain.model.Latest
+import com.example.uishop.presentation.patterns.cardTextStyle
 import com.example.uishop.ui.theme.UIShopTheme
 
 @Composable
@@ -39,7 +38,8 @@ fun SmallCardItem(latest: Latest) {
         modifier = Modifier
             .width(114.dp)
             .height(149.dp)
-            .padding(7.dp).clickable {  }
+            .padding(7.dp)
+            .clickable { }
     )
     {
         Box(
@@ -55,7 +55,8 @@ fun SmallCardItem(latest: Latest) {
             Column(
                 modifier = Modifier
                     .align(Alignment.BottomStart)
-                    .height(80.dp).padding(4.dp),
+                    .height(80.dp)
+                    .padding(4.dp),
                 verticalArrangement = Arrangement.SpaceEvenly
             ) {
                 Box(
@@ -71,31 +72,20 @@ fun SmallCardItem(latest: Latest) {
                     Text(
                         modifier = Modifier.align(Alignment.Center),
                         text = latest.category,
-                        style = TextStyle(
-                            fontSize = 9.sp,
-                            fontFamily = FontFamily(Font(R.font.poppins)),
-                            fontWeight = FontWeight(600),
-                            color = Color(0xFF070604),
-                            textAlign = TextAlign.Center,
-                        )
+                        style = cardTextStyle(fontWeight = FontWeight(600))
                     )
                 }
                 Text(
                     text = latest.name,
-                    style = TextStyle(
-                        fontSize = 13.sp,
-                        fontFamily = FontFamily(Font(R.font.poppins)),
-                        fontWeight = FontWeight(600),
-                        color = Color(0xFFFFFFFF),
+                    style = cardTextStyle(
+                        fontSize = 13,
+                        color = Color.White,
+                        fontWeight = FontWeight(600)
                     )
                 )
                 Text(
-                    text = "$ ${latest.price}", style = TextStyle(
-                        fontSize = 10.sp,
-                        fontFamily = FontFamily(Font(R.font.poppins)),
-                        fontWeight = FontWeight(600),
-                        color = Color(0xFF7E7878),
-                    )
+                    text = "$ ${latest.price}",
+                    style = cardTextStyle(color = Color.Gray, fontWeight = FontWeight.Bold)
                 )
             }
         }

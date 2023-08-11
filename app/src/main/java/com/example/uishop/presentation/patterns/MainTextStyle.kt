@@ -20,4 +20,32 @@ class MainTextStyle(
         fontWeight = FontWeight.Bold,
         color = color
     )
+
 }
+
+
+fun mainTextStyle(
+    fontSize: Int = 14,
+    color: Color,
+    fontWeight: FontWeight = FontWeight.Bold
+): TextStyle =
+    TextStyle.Default.copy(
+        textAlign = TextAlign.Center,
+        fontSize = fontSize.sp,
+        fontFamily = FontFamily(Font(R.font.montserrat)),
+        fontWeight = fontWeight,
+        color = color
+    )
+
+fun cardTextStyle(
+    fontSize: Int = 9,
+    color: Color = Color(0xFF070604),
+    fontWeight: FontWeight = FontWeight.Bold
+): TextStyle =
+    TextStyle.Default.copy(
+        textAlign = TextAlign.Center,
+        fontSize = fontSize.sp,
+        fontFamily = FontFamily(Font(R.font.poppins)),
+        fontWeight = fontWeight,
+        color = color
+    )

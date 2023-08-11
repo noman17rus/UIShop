@@ -1,4 +1,4 @@
-package com.example.uishop.model
+package com.example.uishop.domain.model
 
 
 import com.google.gson.annotations.SerializedName

@@ -1,7 +1,7 @@
-package com.example.uishop.data
+package com.example.uishop.domain
 
-import com.example.uishop.model.ListFlashSale
-import com.example.uishop.model.ListLatest
+import com.example.uishop.domain.model.ListFlashSale
+import com.example.uishop.domain.model.ListLatest
 import retrofit2.http.GET
 
 interface ApiInterface {

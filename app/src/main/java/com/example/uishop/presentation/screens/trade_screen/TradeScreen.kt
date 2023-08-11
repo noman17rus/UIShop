@@ -19,8 +19,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.example.uishop.model.ListFlashSale
-import com.example.uishop.model.ListLatest
+import com.example.uishop.domain.model.ListFlashSale
+import com.example.uishop.domain.model.ListLatest
 import com.example.uishop.presentation.screens.tools.BottomNavBar
 import com.example.uishop.presentation.screens.tools.TopBarProfile
 import com.example.uishop.presentation.screens.trade_screen.items.CategoryListItem
