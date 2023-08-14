@@ -1,6 +1,6 @@
-package com.example.uishop.app
+package com.example.uishop.di
 
-import com.example.uishop.domain.ApiInterface
+import com.example.uishop.data.ApiInterface
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

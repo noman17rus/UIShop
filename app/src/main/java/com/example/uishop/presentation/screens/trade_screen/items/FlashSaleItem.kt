@@ -6,11 +6,15 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Favorite
+import androidx.compose.material.icons.outlined.Favorite
 import androidx.compose.material3.Card
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -29,6 +33,9 @@ import androidx.compose.ui.unit.sp
 import coil.compose.rememberAsyncImagePainter
 import com.example.uishop.R
 import com.example.uishop.domain.model.FlashSale
+import com.example.uishop.presentation.patterns.CardFab
+import com.example.uishop.presentation.patterns.primaryTextStyle
+import com.example.uishop.presentation.patterns.secondaryTextStyle
 import com.example.uishop.ui.theme.UIShopTheme
 
 @Composable
@@ -53,6 +60,22 @@ fun FlashSaleCard(flashSale: FlashSale) {
                 contentDescription = "Content description for visually impaired",
                 contentScale = ContentScale.Crop
             )
+            Row(
+                modifier = Modifier.align(Alignment.BottomEnd),
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Box {
+                    CardFab(size = 40.dp, icon = Icons.Outlined.Favorite, iconSize = 12.dp) {
+
+                    }
+                }
+                Box() {
+                    CardFab(size = 52.dp, iconSize = 44.dp) {
+
+                    }
+                }
+            }
+
             Column(modifier = Modifier.align(Alignment.TopEnd)) {
                 Box(
                     modifier = Modifier
@@ -63,15 +86,13 @@ fun FlashSaleCard(flashSale: FlashSale) {
                     contentAlignment = Alignment.Center
                 ) {
                     Text(
-                        text = "${flashSale.discount} %", style = TextStyle(
-                            fontSize = 10.sp,
-                            fontFamily = FontFamily(Font(R.font.montserrat)),
+                        text = "${flashSale.discount} %",
+                        style = primaryTextStyle(
+                            fontSize = 10,
                             fontWeight = FontWeight(600),
-                            color = Color(0xFFFFFFFF),
-                            textAlign = TextAlign.Center,
+                            color = Color(0xFFFFFFFF)
                         )
                     )
-
                 }
             }
 
@@ -83,7 +104,6 @@ fun FlashSaleCard(flashSale: FlashSale) {
                         .padding(4.dp),
                     verticalArrangement = Arrangement.SpaceEvenly
                 ) {
-
                     Box(
                         modifier = Modifier
                             .width(35.dp)
@@ -92,42 +112,24 @@ fun FlashSaleCard(flashSale: FlashSale) {
                                 color = Color(0xD9C4C4C4),
                                 shape = RoundedCornerShape(size = 5.dp)
                             )
-
                     ) {
                         Text(
                             modifier = Modifier.align(Alignment.Center),
                             text = flashSale.category,
-                            style = TextStyle(
-                                fontSize = 9.sp,
-                                fontFamily = FontFamily(Font(R.font.poppins)),
-                                fontWeight = FontWeight(600),
-                                color = Color(0xFF070604),
-                                textAlign = TextAlign.Center,
-                            )
+                            style = primaryTextStyle(fontSize = 9)
                         )
                     }
                     Text(
                         text = flashSale.name,
-                        style = TextStyle(
-                            fontSize = 13.sp,
-                            fontFamily = FontFamily(Font(R.font.poppins)),
-                            fontWeight = FontWeight(600),
-                            color = Color(0xFF020202),
-                        )
+                        style = secondaryTextStyle(fontSize = 13)
                     )
                     Text(
-                        text = "$ ${flashSale.price}", style = TextStyle(
-                            fontSize = 10.sp,
-                            fontFamily = FontFamily(Font(R.font.poppins)),
-                            fontWeight = FontWeight(600),
-                            color = Color(0xFF9B9393),
-                        )
+                        text = "$ ${flashSale.price}",
+                        style = secondaryTextStyle(fontSize = 10, fontWeight = FontWeight(600))
                     )
                 }
-
             }
         }
-
     }
 }
 

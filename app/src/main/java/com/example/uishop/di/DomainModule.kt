@@ -1,6 +1,6 @@
 package com.example.uishop.di
 
-import com.example.uishop.domain.ApiInterface
+import com.example.uishop.data.ApiInterface
 import com.example.uishop.domain.usecasses.product.GetFlashSaleListUseCase
 import com.example.uishop.domain.usecasses.product.GetLatestListUseCase
 import dagger.Module

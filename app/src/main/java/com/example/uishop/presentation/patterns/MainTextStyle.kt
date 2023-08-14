@@ -24,9 +24,9 @@ class MainTextStyle(
 }
 
 
-fun mainTextStyle(
+fun primaryTextStyle(
     fontSize: Int = 14,
-    color: Color,
+    color: Color= Color(0xFF070604),
     fontWeight: FontWeight = FontWeight.Bold
 ): TextStyle =
     TextStyle.Default.copy(
@@ -37,7 +37,7 @@ fun mainTextStyle(
         color = color
     )
 
-fun cardTextStyle(
+fun secondaryTextStyle(
     fontSize: Int = 9,
     color: Color = Color(0xFF070604),
     fontWeight: FontWeight = FontWeight.Bold

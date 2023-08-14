@@ -87,7 +87,8 @@ dependencies {
     //noinspection GradleDependency
     implementation("androidx.compose.material:material-icons-extended:$1.4.3")
 
-
+    //navigation
+    implementation ("androidx.navigation:navigation-compose:2.6.0")
 
     // Hilt
     implementation("com.google.dagger:hilt-android:2.44")

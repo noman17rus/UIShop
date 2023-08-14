@@ -1,4 +1,4 @@
-package com.example.uishop.presentation.screens.tools
+package com.example.uishop.presentation.patterns
 
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle

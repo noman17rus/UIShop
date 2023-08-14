@@ -1,4 +1,4 @@
-package com.example.uishop.domain
+package com.example.uishop.data
 
 import com.example.uishop.domain.model.ListFlashSale
 import com.example.uishop.domain.model.ListLatest

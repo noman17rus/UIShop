@@ -1,4 +1,4 @@
-package com.example.uishop.presentation.screens.tools
+package com.example.uishop.presentation.patterns
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -15,7 +15,6 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowForwardIos
 import androidx.compose.material.icons.filled.CreditCard
-import androidx.compose.material.icons.filled.Image
 import androidx.compose.material.icons.filled.Logout
 import androidx.compose.material.icons.filled.Restore
 import androidx.compose.material.icons.rounded.Help

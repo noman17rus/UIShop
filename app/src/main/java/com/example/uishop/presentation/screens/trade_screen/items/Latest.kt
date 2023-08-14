@@ -17,30 +17,16 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.uishop.R
+import com.example.uishop.presentation.patterns.primaryTextStyle
+import com.example.uishop.presentation.patterns.secondaryTextStyle
 import com.example.uishop.ui.theme.UIShopTheme
 
 @Composable
 fun LatestItems() {
     Box(modifier = Modifier.fillMaxWidth()) {
-        Row(Modifier.fillMaxWidth().padding(4.dp), horizontalArrangement = Arrangement.SpaceBetween) {
-            Text(
-                text = "Latest",
-                style = TextStyle(
-                    fontSize = 15.sp,
-                    fontFamily = FontFamily(Font(R.font.montserrat)),
-                    fontWeight = FontWeight(500),
-                    color = Color(0xFF040402),
-                )
-            )
-            Text(
-                text = "View all",
-                style = TextStyle(
-                    fontSize = 9.sp,
-                    fontFamily = FontFamily(Font(R.font.montserrat)),
-                    fontWeight = FontWeight(500),
-                    color = Color(0xFF808080),
-                )
-            )
+        Row(modifier = Modifier.fillMaxWidth().padding(start = 10.dp, end = 10.dp), horizontalArrangement = Arrangement.SpaceBetween) {
+            Text(text = "Latest", style = primaryTextStyle(color = Color.Black))
+            Text(text = "View All", style = secondaryTextStyle(fontWeight = FontWeight(300)))
         }
     }
 }

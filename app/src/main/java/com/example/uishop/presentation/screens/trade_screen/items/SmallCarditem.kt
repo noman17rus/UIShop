@@ -18,17 +18,13 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.text.TextStyle
-import androidx.compose.ui.text.font.Font
-import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import coil.compose.rememberAsyncImagePainter
-import com.example.uishop.R
 import com.example.uishop.domain.model.Latest
-import com.example.uishop.presentation.patterns.cardTextStyle
+import com.example.uishop.presentation.patterns.CardFab
+import com.example.uishop.presentation.patterns.secondaryTextStyle
 import com.example.uishop.ui.theme.UIShopTheme
 
 @Composable
@@ -52,6 +48,9 @@ fun SmallCardItem(latest: Latest) {
                 contentDescription = "Content description for visually impaired",
                 contentScale = ContentScale.Crop
             )
+            CardFab(size = 28.dp) {
+
+            }
             Column(
                 modifier = Modifier
                     .align(Alignment.BottomStart)
@@ -72,12 +71,12 @@ fun SmallCardItem(latest: Latest) {
                     Text(
                         modifier = Modifier.align(Alignment.Center),
                         text = latest.category,
-                        style = cardTextStyle(fontWeight = FontWeight(600))
+                        style = secondaryTextStyle(fontWeight = FontWeight(600))
                     )
                 }
                 Text(
                     text = latest.name,
-                    style = cardTextStyle(
+                    style = secondaryTextStyle(
                         fontSize = 13,
                         color = Color.White,
                         fontWeight = FontWeight(600)
@@ -85,7 +84,7 @@ fun SmallCardItem(latest: Latest) {
                 )
                 Text(
                     text = "$ ${latest.price}",
-                    style = cardTextStyle(color = Color.Gray, fontWeight = FontWeight.Bold)
+                    style = secondaryTextStyle(color = Color.Gray, fontWeight = FontWeight.Bold)
                 )
             }
         }

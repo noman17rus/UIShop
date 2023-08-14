@@ -1,4 +1,4 @@
-package com.example.uishop.presentation.screens.tools
+package com.example.uishop.presentation.patterns
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.height
