@@ -37,19 +37,20 @@ import com.example.uishop.presentation.screens.trade_screen.items.SearchTextFiel
 import com.example.uishop.presentation.screens.trade_screen.items.SmallCardItem
 import com.example.uishop.rememberAppState
 import com.example.uishop.ui.theme.UIShopTheme
+import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.navigation.NavController
+import com.example.uishop.AppState
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun TradeScreen(viewModel: TradeScreenViewModel = androidx.lifecycle.viewmodel.compose.viewModel()) {
-    val appState = rememberAppState()
+fun TradeScreen(viewModel: TradeScreenViewModel = hiltViewModel(), appState: AppState) {
     LaunchedEffect(key1 = true) {
         viewModel.getLatestProducts()
         viewModel.getFlashSaleProducts()
     }
     Spacer(modifier = Modifier.padding(5.dp))
     Scaffold(modifier = Modifier.fillMaxSize(),
-        bottomBar = { BottomNavBar(appState.navController) },
+        bottomBar = {  },
         topBar = { TopBarTradeScreen() }
     ) {
         val latestProducts = viewModel.listLatestProduct.observeAsState().value
@@ -73,7 +74,7 @@ fun TradeScreen(viewModel: TradeScreenViewModel = androidx.lifecycle.viewmodel.c
                 LatestProducts(latest = latestProducts)
             }
             item {
-                FlashSaleProducts(flashSale = flashSalesProducts)
+                FlashSaleProducts(flashSale = flashSalesProducts, navController = appState.navController)
             }
         }
     }
@@ -95,24 +96,18 @@ fun LatestProducts(latest: ListLatest?) {
 }
 
 @Composable
-fun FlashSaleProducts(flashSale: ListFlashSale?) {
-    Row(modifier = Modifier
-        .fillMaxWidth()
-        .padding(start = 10.dp, end = 10.dp), horizontalArrangement = Arrangement.SpaceBetween) {
+fun FlashSaleProducts(flashSale: ListFlashSale?, navController: NavController) {
+    Row(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(start = 10.dp, end = 10.dp), horizontalArrangement = Arrangement.SpaceBetween
+    ) {
         Text(text = "Flash sales", style = primaryTextStyle(color = Color.Black))
         Text(text = "View All", style = secondaryTextStyle(fontWeight = FontWeight(500)))
     }
     LazyRow {
         flashSale?.let { it ->
-            items(it.listFlashSale) { FlashSaleItem(flashSale = it) }
+            items(it.listFlashSale) { FlashSaleItem(flashSale = it, navController = navController) }
         }
-    }
-}
-
-@Preview
-@Composable
-fun PreviewTradeScreen() {
-    UIShopTheme {
-        TradeScreen()
     }
 }

@@ -13,6 +13,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
 import com.example.uishop.presentation.patterns.UiShopButton
 import com.example.uishop.presentation.screens.sign_screen.elements.LogIn
@@ -23,8 +24,7 @@ import com.example.uishop.presentation.patterns.CustomTextField
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter", "NewApi")
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun SignScreen(viewModel: SignScreenViewModel = androidx.lifecycle.viewmodel.compose.viewModel()
-) {
+fun SignScreen(viewModel: SignScreenViewModel = hiltViewModel()) {
     Column(
         modifier = Modifier.fillMaxSize(),
         verticalArrangement = Arrangement.SpaceEvenly,
@@ -35,8 +35,8 @@ fun SignScreen(viewModel: SignScreenViewModel = androidx.lifecycle.viewmodel.com
             firstname = viewModel.firstname,
             lastName = viewModel.lastName,
             email = viewModel.email,
-            onNameChange = viewModel.editFirstName() ,
-            onLastNameChange =  viewModel.editLastName(),
+            onNameChange = viewModel.editFirstName(),
+            onLastNameChange = viewModel.editLastName(),
             onEmailChange = viewModel.editEmail()
         ) {
             //button click

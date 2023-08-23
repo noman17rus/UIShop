@@ -30,28 +30,32 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import coil.compose.rememberAsyncImagePainter
 import com.example.uishop.R
 import com.example.uishop.domain.model.FlashSale
+import com.example.uishop.navigation.AllScreens
 import com.example.uishop.presentation.patterns.CardFab
 import com.example.uishop.presentation.patterns.primaryTextStyle
 import com.example.uishop.presentation.patterns.secondaryTextStyle
 import com.example.uishop.ui.theme.UIShopTheme
 
 @Composable
-fun FlashSaleItem(flashSale: FlashSale) {
-    FlashSaleCard(flashSale)
+fun FlashSaleItem(flashSale: FlashSale, navController: NavController) {
+    FlashSaleCard(flashSale, navController)
 }
 
 @Composable
-fun FlashSaleCard(flashSale: FlashSale) {
+fun FlashSaleCard(flashSale: FlashSale, navController: NavController) {
     val painter = rememberAsyncImagePainter(flashSale.imageUrl)
     Card(
         modifier = Modifier
             .width(200.dp)
             .height(250.dp)
             .padding(10.dp)
-            .clickable { }
+            .clickable {
+                navController.navigate(AllScreens.DetailScreen.route)
+            }
     ) {
         Box {
             Image(

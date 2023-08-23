@@ -10,8 +10,6 @@ import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 
 class ProfileScreenViewModel : ViewModel() {
-
     var imageUri by mutableStateOf(Uri.EMPTY)
-
 
 }

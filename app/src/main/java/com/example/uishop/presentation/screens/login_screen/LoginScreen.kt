@@ -14,17 +14,16 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.example.uishop.presentation.patterns.UiShopButton
+import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.uishop.presentation.patterns.CustomTextField
 import com.example.uishop.presentation.patterns.MyTextStyle
 import com.example.uishop.presentation.patterns.PasswordTextField
-import dagger.hilt.android.lifecycle.HiltViewModel
+import com.example.uishop.presentation.patterns.UiShopButton
 
 
 @Composable
-fun LoginScreen(viewModel: LoginScreenViewModel = androidx.lifecycle.viewmodel.compose.viewModel()) {
+fun LoginScreen(viewModel: LoginScreenViewModel = hiltViewModel()) {
 
     Column(
         modifier = Modifier.fillMaxSize(),

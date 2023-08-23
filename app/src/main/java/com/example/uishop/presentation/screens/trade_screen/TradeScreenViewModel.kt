@@ -19,7 +19,6 @@ import javax.inject.Inject
 
 @HiltViewModel
 class TradeScreenViewModel @Inject constructor(
-    private val apiInterface: ApiInterface,
     private val getLatestListUseCase: GetLatestListUseCase,
     private val getFlashSaleListUseCase: GetFlashSaleListUseCase
 ) : ViewModel() {

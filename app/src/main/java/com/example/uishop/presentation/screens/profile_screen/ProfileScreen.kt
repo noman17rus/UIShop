@@ -30,7 +30,7 @@ fun ProfileScreen() {
     val appState = rememberAppState()
     Scaffold(
         topBar = { TopBarProfile() },
-        bottomBar = { BottomNavBar(appState.navController) },
+        bottomBar = {  },
     ) {
         Column(
             modifier = Modifier
